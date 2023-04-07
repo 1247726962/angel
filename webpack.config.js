@@ -56,6 +56,15 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      // {
+      //   test: /\.(png|svg|jpg|gif)$/,
+      //   use: {
+      //     loader: 'url-loader',
+      //     options: {
+      //       imit: 3 * 1024
+      //     }
+      //   }
+      // }//处理图片
     ]
   }
 }
