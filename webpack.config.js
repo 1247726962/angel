@@ -9,7 +9,7 @@ module.exports = {
     filename: 'bundle.js' //打包后输出文件的文件名
   },
   resolve: {
-    extensions: [".tsx",".ts",".js"], // 配置ts文件可以作为模块加载
+    extensions: [".tsx", ".ts", ".js"], // 配置ts文件可以作为模块加载
   },
   // optimization: {
   //   minimizer: [
@@ -24,9 +24,9 @@ module.exports = {
   ],
   //本地服务器运行
   devServer: {
-    hot:true,
-    open:true,
-    https: true,
+    hot: true,
+    open: true,
+    https: true,//开启使用https协议，https协议比http协议更安全
     historyApiFallback: true,
     contentBase: path.join(__dirname, '/dist'), // 本地服务器所加载文件的目录
     port: '8088', // 设置端口号为8088
@@ -52,8 +52,12 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: ["babel-loader", "ts-loader"],
         exclude: /node_modules/,
       },
       // {
