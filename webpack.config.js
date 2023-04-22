@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');//预定义模板插件
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');//使输出的css文件以单独的文件存在
 module.exports = {
   mode: 'development',
+  // mode: 'production'，//生产压缩
   entry: path.join(__dirname, '/src/index.tsx'), // 入口文件
   output: {
     path: path.join(__dirname, '/dist'), //打包后的文件存放的地方
