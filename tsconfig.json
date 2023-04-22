@@ -14,7 +14,7 @@
         //"declaration": true
     },
     "include": [
-        "src/**/*"
+        "src/**/*","imges.d.ts"
     ],
     "exclude": [
         "node_modules"
