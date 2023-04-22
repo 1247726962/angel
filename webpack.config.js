@@ -18,7 +18,12 @@ module.exports = {
   // },//dist中的css是否被压缩
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'//以index.html为模板
+      template: 'index.html',//以index.html为模板
+      // favicon: 'favicon-16x16.png',
+      minify: { //压缩HTML文件
+        removeComments: true, //移除HTML中的注释
+        collapseWhitespace: false //删除空白符与换行符
+      }
     }),
     new MiniCssExtractPlugin()
   ],
