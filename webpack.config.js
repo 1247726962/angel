@@ -60,15 +60,18 @@ module.exports = {
         use: ["babel-loader", "ts-loader"],
         exclude: /node_modules/,
       },
-      // {
-      //   test: /\.(png|svg|jpg|gif)$/,
-      //   use: {
-      //     loader: 'url-loader',
-      //     options: {
-      //       imit: 3 * 1024
-      //     }
-      //   }
-      // }//处理图片
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset',//webpack5内置图片处理模块
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024//小于10kb的图片被转换成base64字符串
+          }
+        },
+        generator: {
+          filename: 'img/[hash][ext][query]'
+        }
+      }
     ]
   }
 }
