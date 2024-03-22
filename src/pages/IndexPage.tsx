@@ -32,7 +32,7 @@ class IndexPage extends React.Component {
     const { completed } = this.state
     let view = []
     data.map(i => view.push(
-      <div><span>{i}</span><Button onClick={() => this.setState({ completed: this.delete(completed, i) })}>删除</Button></div>
+      // <div><span>{i}</span><Button onClick={() => this.setState({ completed: this.delete(completed, i) })}>删除</Button></div>
     ))
     return view
   }
@@ -40,8 +40,8 @@ class IndexPage extends React.Component {
   render() {
     const { inProess, completed, inputValue } = this.state
     return <div style={{ width: 500 }}>
-      <Input onChange={v => this.setState({ inProess: [v.target.value], inputValue: v.target.value })} value={inputValue}></Input>
-      <Button onClick={() => this.setState({ inProess: [], completed: this.add(completed, inProess[0]), inputValue: null })}>确认</Button>
+      {/* <Input onChange={v => this.setState({ inProess: [v.target.value], inputValue: v.target.value })} value={inputValue}></Input> */}
+      {/* <Button onClick={() => this.setState({ inProess: [], completed: this.add(completed, inProess[0]), inputValue: null })}>确认</Button> */}
       <div>正在进行中</div>
       {this.inProessRender(inProess)}
       <div>已完成</div>

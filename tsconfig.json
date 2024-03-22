@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "./dist/",
         "noImplicitAny": false, //此配置项可以使 ts 中即使不声明变量类型也可以不报错
-        "module": "es6",
+        "module": "es2020",
         "target": "es5",
         "jsx": "react",
         "allowJs": true,

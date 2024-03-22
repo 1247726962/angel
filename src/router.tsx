@@ -1,14 +1,27 @@
 import React from 'react';
+import { useState, useRef, useEffect, lazy, Suspense } from 'react';
 import { Router, Route, Switch } from 'dva/router';
-import IndexPage from './page/IndexPage';
-import page from './page/page';
+import urlSet from './URL';
+
+let urlSets = []
+const urlRoute = (urlSet) => {
+  urlSet.map(i => {
+    // const Component = lazy( ()=>import( i.component ) )
+    urlSets.push(<Route path={i.url} component={i.component} />)
+  })
+}
+urlRoute(urlSet)
+// window.addEventListener('hashchange', (e) => {
+//     console.log('hashchange')
+// })
 
 function RouterConfig({ history }) {
+  let region = [1, 2, 3]
+  const [current, setCrrent] = useState(0);
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={IndexPage} />
-        <Route path="/a" exact component={page} />
+        {...urlSets}
       </Switch>
     </Router>
   );
